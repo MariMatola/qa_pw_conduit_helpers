@@ -40,6 +40,8 @@ test(
   await updateArticlePage.clickUpdateArticleButton();
   
   await viewArticlePage.assertArticleTitleIsVisible(article.title);
+  await viewArticlePage
+  .assertArticleDescriptionIsVisible(articleEdit.description);
   await viewArticlePage.assertArticleTextIsVisible(article.text);
 });
 
@@ -59,10 +61,7 @@ test('Add the tag for the existing article with tags', async ({page}) => {
   await updateArticlePage.fillInTags(articleEdit.tags);
   await updateArticlePage.clickUpdateArticleButton();
   
-  const generaltags = article.tags
-  for (let tag of articleEdit.tags) {
-    generaltags.push(tag);
-  }
+  const generaltags =  [...article.tags, ...articleEdit.tags];
   await viewArticlePage.assertArticleTitleIsVisible(article.title);
   await viewArticlePage.assertArticleTextIsVisible(article.text);
   await viewArticlePage.assertCorrectTagsAreVisible(generaltags);

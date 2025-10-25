@@ -27,6 +27,12 @@ export class ViewArticlePage {
     });
   }
 
+  async assertArticleDescriptionIsVisible(description) {
+    await test.step(`Assert the article has correct description'`, async () => {
+      await expect(this.page.getByText(description)).toBeVisible();
+    });
+  }
+
   async assertCorrectTagsAreVisible(tags) {
     await test.step(`Assert the article has correct tags'`, async () => {
       for (let tag of tags) {

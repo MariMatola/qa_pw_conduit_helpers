@@ -6,9 +6,9 @@ import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import { ViewArticlePage } from '../../src/ui/pages/article/ViewArticlePage';
 import { createNewArticle }from '../../src/ui/actions/article/createNewArticle';
 import {
-  TITLE_CANNOT_BE_EMPTY,
-  DESCRIPTION_CANNOT_BE_EMPTY,
-  BODY_CANNOT_BE_EMPTY
+  TITLE_CANNOT_BE_BLANK,
+  DESCRIPTION_CANNOT_BE_BLANK,
+  BODY_CANNOT_BE_BLANK
 } from '../../src/ui/constants/articleErrorMessages';
 
 let updateArticlePage;
@@ -32,7 +32,7 @@ test(
   await updateArticlePage.fillTitleField('');
   await updateArticlePage.clickUpdateArticleButton();
 
-  await updateArticlePage.assertErrorMessageContainsText(TITLE_CANNOT_BE_EMPTY);
+  await updateArticlePage.assertErrorMessageContainsText(TITLE_CANNOT_BE_BLANK);
 });
 
 test(
@@ -44,7 +44,7 @@ test(
   await updateArticlePage.clickUpdateArticleButton();
 
   await updateArticlePage
-    .assertErrorMessageContainsText(DESCRIPTION_CANNOT_BE_EMPTY);
+    .assertErrorMessageContainsText(DESCRIPTION_CANNOT_BE_BLANK);
 
 });
 
@@ -57,7 +57,7 @@ test(
   await updateArticlePage.clickUpdateArticleButton();
 
   await updateArticlePage
-  .assertErrorMessageContainsText(BODY_CANNOT_BE_EMPTY);
+  .assertErrorMessageContainsText(BODY_CANNOT_BE_BLANK);
 });
 
 test(
