@@ -70,5 +70,5 @@ test(
   
   await viewArticlePage.assertArticleTitleIsVisible(article.title);
   await viewArticlePage.assertArticleTextIsVisible(article.text);
-  await viewArticlePage.assertCorrectTagsAreNotVisible(article.tags);
+  await viewArticlePage.assertCorrectTagsIsNotVisible(article.tags[0]);
 });

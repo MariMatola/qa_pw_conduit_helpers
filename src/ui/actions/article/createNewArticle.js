@@ -17,7 +17,7 @@ export async function createNewArticle(page, article, tagsShouldBe) {
     
     // eslint-disable-next-line playwright/no-conditional-in-test
     if (tagsShouldBe) {
-      await createArticlePage.fillInTags(article.tags, page);
+      await createArticlePage.fillInTags(article.tags);
     }
     
     await createArticlePage.clickPublishArticleButton();

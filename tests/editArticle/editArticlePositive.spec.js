@@ -56,7 +56,7 @@ test('Edit the article text for the existing article', async ({page}) => {
 test('Add the tag for the existing article with tags', async ({page}) => {
   await createNewArticle(page, article, true);
   await viewArticlePage.clickEditArticleButton();
-  await updateArticlePage.fillInTags(articleEdit.tags, page);
+  await updateArticlePage.fillInTags(articleEdit.tags);
   await updateArticlePage.clickUpdateArticleButton();
   
   const generaltags = article.tags
@@ -71,7 +71,7 @@ test('Add the tag for the existing article with tags', async ({page}) => {
 test('Add the tag for the existing article without tags', async ({page}) => {
   await createNewArticle(page, article, false);
   await viewArticlePage.clickEditArticleButton();
-  await updateArticlePage.fillInTags(articleEdit.tags, page);
+  await updateArticlePage.fillInTags(articleEdit.tags);
   await updateArticlePage.clickUpdateArticleButton();
   
   await viewArticlePage.assertArticleTitleIsVisible(article.title);

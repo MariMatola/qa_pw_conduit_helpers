@@ -10,7 +10,7 @@ export class ViewArticlePage {
   }
 
   async clickEditArticleButton() {
-    await test.step(`Click Edit Article button'`, async () => {
+    await test.step(`Click Edit Article button`, async () => {
       await this.editArticleButton.click();
     });
   }
@@ -35,8 +35,8 @@ export class ViewArticlePage {
     });
   }
 
-  async assertCorrectTagsAreNotVisible(tag) {
-    await test.step(`Assert the article has correct tags'`, async () => {
+  async assertCorrectTagsIsNotVisible(tag) {
+    await test.step(`Assert the article hasn't a tag'`, async () => {
         await expect(
           this.page.getByText(tag, { exact: true })
         ).toBeHidden();
